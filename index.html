@@ -1,0 +1,1203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kristine Faith N. Cubero | Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,700;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg-primary: #0a0e17;
+  --bg-secondary: #111827;
+  --bg-card: #1a2234;
+  --bg-card-hover: #1f2a40;
+  --accent-cyan: #06d6a0;
+  --accent-blue: #118ab2;
+  --accent-teal: #0af0d1;
+  --text-primary: #e8edf5;
+  --text-secondary: #8892a4;
+  --text-muted: #5a6478;
+  --border: rgba(6, 214, 160, 0.12);
+  --glow: rgba(6, 214, 160, 0.15);
+  --gradient-1: linear-gradient(135deg, #06d6a0, #118ab2);
+  --gradient-2: linear-gradient(135deg, #0af0d1, #06d6a0);
+  --font-display: 'Syne', sans-serif;
+  --font-body: 'DM Sans', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-body);
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+/* Noise overlay */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Grid background */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(6,214,160,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(6,214,160,0.03) 1px, transparent 1px);
+  background-size: 60px 60px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--bg-primary); }
+::-webkit-scrollbar-thumb { background: var(--accent-cyan); border-radius: 3px; }
+
+/* NAV */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: rgba(10, 14, 23, 0.85);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border);
+  padding: 0 2rem;
+}
+
+nav .nav-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 64px;
+}
+
+nav .logo {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 1.15rem;
+  background: var(--gradient-1);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  letter-spacing: -0.02em;
+}
+
+nav .logo span {
+  -webkit-text-fill-color: var(--text-muted);
+  font-weight: 400;
+  font-size: 0.85rem;
+  margin-left: 0.5rem;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 0.25rem;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: var(--text-secondary);
+  font-size: 0.82rem;
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  transition: all 0.3s;
+  letter-spacing: 0.02em;
+}
+
+nav ul li a:hover {
+  color: var(--accent-cyan);
+  background: rgba(6, 214, 160, 0.06);
+}
+
+/* Hamburger */
+.hamburger { display: none; background: none; border: none; cursor: pointer; padding: 0.5rem; }
+.hamburger span { display: block; width: 22px; height: 2px; background: var(--text-secondary); margin: 5px 0; transition: all 0.3s; border-radius: 2px; }
+
+/* SECTIONS */
+section {
+  position: relative;
+  z-index: 1;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 6rem 2rem;
+}
+
+/* HERO */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding-top: 64px;
+}
+
+.hero-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+  width: 100%;
+}
+
+.hero-text { animation: fadeSlideUp 0.8s ease forwards; }
+
+.hero-label {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--accent-cyan);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-bottom: 1.2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.hero-label::before {
+  content: '';
+  width: 32px;
+  height: 1px;
+  background: var(--accent-cyan);
+}
+
+.hero h1 {
+  font-family: var(--font-display);
+  font-size: clamp(2.4rem, 5vw, 3.6rem);
+  font-weight: 800;
+  line-height: 1.08;
+  letter-spacing: -0.03em;
+  margin-bottom: 1.5rem;
+}
+
+.hero h1 .highlight {
+  background: var(--gradient-1);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero-summary {
+  font-size: 1.05rem;
+  color: var(--text-secondary);
+  line-height: 1.8;
+  margin-bottom: 2rem;
+  max-width: 520px;
+}
+
+.hero-cta {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.85rem 1.8rem;
+  border-radius: 8px;
+  font-family: var(--font-body);
+  font-size: 0.88rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s;
+  cursor: pointer;
+  border: none;
+}
+
+.btn-primary {
+  background: var(--gradient-1);
+  color: var(--bg-primary);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(6, 214, 160, 0.3);
+}
+
+.btn-outline {
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--text-primary);
+}
+
+.btn-outline:hover {
+  border-color: var(--accent-cyan);
+  color: var(--accent-cyan);
+  background: rgba(6, 214, 160, 0.04);
+}
+
+/* Hero visual */
+.hero-visual {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: fadeSlideUp 0.8s 0.2s ease forwards;
+  opacity: 0;
+}
+
+.terminal-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 0;
+  width: 100%;
+  max-width: 480px;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.4), 0 0 60px var(--glow);
+}
+
+.terminal-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1rem 1.25rem;
+  background: rgba(0,0,0,0.3);
+  border-bottom: 1px solid var(--border);
+}
+
+.terminal-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+.terminal-dot.r { background: #ff5f57; }
+.terminal-dot.y { background: #febc2e; }
+.terminal-dot.g { background: #28c840; }
+
+.terminal-title {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  margin-left: 0.75rem;
+}
+
+.terminal-body {
+  padding: 1.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  line-height: 2;
+}
+
+.terminal-body .prompt { color: var(--accent-cyan); }
+.terminal-body .key { color: var(--accent-blue); }
+.terminal-body .val { color: var(--text-primary); }
+.terminal-body .str { color: #fbbf24; }
+.terminal-body .comment { color: var(--text-muted); font-style: italic; }
+
+.typing-cursor {
+  display: inline-block;
+  width: 8px;
+  height: 15px;
+  background: var(--accent-cyan);
+  animation: blink 1s infinite;
+  vertical-align: middle;
+  margin-left: 2px;
+}
+
+@keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+
+/* SECTION HEADERS */
+.section-header {
+  margin-bottom: 3.5rem;
+}
+
+.section-label {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--accent-cyan);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-bottom: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.section-label::before {
+  content: '//';
+  color: var(--text-muted);
+}
+
+.section-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 3vw, 2.4rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+/* TIMELINE */
+.timeline {
+  position: relative;
+  padding-left: 3rem;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 7px;
+  top: 8px;
+  bottom: 0;
+  width: 1px;
+  background: linear-gradient(to bottom, var(--accent-cyan), transparent);
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 3rem;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeSlideUp 0.5s ease forwards;
+}
+
+.timeline-item:nth-child(1) { animation-delay: 0.1s; }
+.timeline-item:nth-child(2) { animation-delay: 0.2s; }
+.timeline-item:nth-child(3) { animation-delay: 0.3s; }
+.timeline-item:nth-child(4) { animation-delay: 0.4s; }
+
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: -3rem;
+  top: 8px;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  border: 2px solid var(--accent-cyan);
+  background: var(--bg-primary);
+  z-index: 2;
+}
+
+.timeline-item.current::before {
+  background: var(--accent-cyan);
+  box-shadow: 0 0 12px var(--accent-cyan);
+}
+
+.timeline-date {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--accent-cyan);
+  margin-bottom: 0.4rem;
+}
+
+.timeline-role {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: 0.2rem;
+}
+
+.timeline-company {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  margin-bottom: 0.75rem;
+}
+
+.timeline-desc {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  line-height: 1.75;
+}
+
+.timeline-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.75rem;
+}
+
+.badge {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  padding: 0.3rem 0.75rem;
+  border-radius: 20px;
+  border: 1px solid var(--border);
+  color: var(--text-secondary);
+  background: rgba(6, 214, 160, 0.03);
+}
+
+.badge.award {
+  border-color: rgba(251, 191, 36, 0.3);
+  color: #fbbf24;
+  background: rgba(251, 191, 36, 0.06);
+}
+
+/* SKILLS */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  gap: 1.5rem;
+}
+
+.skill-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 2rem;
+  transition: all 0.4s;
+  position: relative;
+  overflow: hidden;
+}
+
+.skill-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--gradient-1);
+  opacity: 0;
+  transition: opacity 0.4s;
+}
+
+.skill-card:hover {
+  border-color: rgba(6, 214, 160, 0.25);
+  background: var(--bg-card-hover);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.3);
+}
+
+.skill-card:hover::before { opacity: 1; }
+
+.skill-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  margin-bottom: 1.25rem;
+  background: rgba(6, 214, 160, 0.08);
+  border: 1px solid rgba(6, 214, 160, 0.15);
+}
+
+.skill-card h3 {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+}
+
+.skill-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.skill-tag {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  padding: 0.25rem 0.6rem;
+  border-radius: 4px;
+  background: rgba(6, 214, 160, 0.06);
+  color: var(--text-secondary);
+  border: 1px solid rgba(6, 214, 160, 0.08);
+}
+
+/* CERTIFICATIONS */
+.certs-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.cert-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1.5rem;
+  text-align: center;
+  transition: all 0.3s;
+}
+
+.cert-card:hover {
+  border-color: rgba(6, 214, 160, 0.3);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 30px rgba(0,0,0,0.2);
+}
+
+.cert-icon {
+  font-size: 2rem;
+  margin-bottom: 0.75rem;
+}
+
+.cert-name {
+  font-family: var(--font-display);
+  font-size: 0.88rem;
+  font-weight: 700;
+  margin-bottom: 0.3rem;
+}
+
+.cert-issuer {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+/* EDUCATION */
+.edu-grid {
+  display: grid;
+  gap: 1.25rem;
+}
+
+.edu-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1.75rem 2rem;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 1.5rem;
+  align-items: center;
+  transition: all 0.3s;
+}
+
+.edu-card:hover {
+  border-color: rgba(6, 214, 160, 0.2);
+  background: var(--bg-card-hover);
+}
+
+.edu-year {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--accent-cyan);
+  white-space: nowrap;
+}
+
+.edu-degree {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 0.2rem;
+}
+
+.edu-school {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+
+.edu-honor {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  padding: 0.3rem 0.75rem;
+  border-radius: 20px;
+  border: 1px solid rgba(251, 191, 36, 0.3);
+  color: #fbbf24;
+  background: rgba(251, 191, 36, 0.06);
+  white-space: nowrap;
+}
+
+/* LEADERSHIP */
+.leadership-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1rem;
+}
+
+.leadership-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1.25rem 1.5rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  transition: all 0.3s;
+}
+
+.leadership-item:hover {
+  border-color: rgba(6, 214, 160, 0.2);
+}
+
+.leadership-bullet {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent-cyan);
+  flex-shrink: 0;
+  margin-top: 0.55rem;
+}
+
+.leadership-role {
+  font-weight: 600;
+  font-size: 0.9rem;
+  margin-bottom: 0.15rem;
+}
+
+.leadership-org {
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+}
+
+.leadership-yr {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--text-muted);
+}
+
+/* CONTACT */
+.contact-section {
+  text-align: center;
+  padding: 6rem 2rem 4rem;
+}
+
+.contact-section .section-header { margin-bottom: 2rem; }
+.contact-section .section-label { justify-content: center; }
+.contact-section .section-title { margin-bottom: 0.75rem; }
+
+.contact-subtitle {
+  color: var(--text-secondary);
+  font-size: 1rem;
+  margin-bottom: 2.5rem;
+  max-width: 480px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.contact-links {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.contact-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.85rem 1.5rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  color: var(--text-primary);
+  text-decoration: none;
+  font-size: 0.88rem;
+  font-weight: 500;
+  transition: all 0.3s;
+}
+
+.contact-link:hover {
+  border-color: var(--accent-cyan);
+  color: var(--accent-cyan);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+}
+
+.contact-link svg {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+}
+
+/* FOOTER */
+footer {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  padding: 2rem;
+  border-top: 1px solid var(--border);
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+}
+
+/* ANIMATIONS */
+@keyframes fadeSlideUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .hero-content {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    text-align: center;
+  }
+  .hero-label { justify-content: center; }
+  .hero-summary { margin: 0 auto 2rem; }
+  .hero-cta { justify-content: center; }
+  .edu-card { grid-template-columns: 1fr; gap: 0.5rem; text-align: center; }
+  .edu-honor { justify-self: center; }
+}
+
+@media (max-width: 640px) {
+  nav ul { display: none; }
+  nav ul.active {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 64px;
+    left: 0;
+    right: 0;
+    background: rgba(10, 14, 23, 0.97);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border);
+    padding: 1rem;
+  }
+  .hamburger { display: block; }
+  .skills-grid { grid-template-columns: 1fr; }
+  .certs-grid { grid-template-columns: repeat(2, 1fr); }
+  .leadership-list { grid-template-columns: 1fr; }
+  section { padding: 4rem 1.25rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <div class="logo">KFC<span>portfolio</span></div>
+    <ul id="navMenu">
+      <li><a href="#about">About</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#certifications">Certifications</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <button class="hamburger" onclick="document.getElementById('navMenu').classList.toggle('active')" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="about">
+  <div class="hero-content">
+    <div class="hero-text">
+      <div class="hero-label">Available for Opportunities</div>
+      <h1>Kristine Faith<br><span class="highlight">N. Cubero</span></h1>
+      <p class="hero-summary">
+        IT Specialist, Knowledge Management Consultant, and Juris Doctor candidate with 8+ years across incident response, 
+        service desk operations, and enterprise IT. Bridging cybersecurity operations with legal expertise to deliver 
+        resilient, well-documented outcomes.
+      </p>
+      <div class="hero-cta">
+        <a href="#contact" class="btn btn-primary">
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          Get in Touch
+        </a>
+        <a href="#experience" class="btn btn-outline">View Experience ↓</a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="terminal-card">
+        <div class="terminal-header">
+          <div class="terminal-dot r"></div>
+          <div class="terminal-dot y"></div>
+          <div class="terminal-dot g"></div>
+          <span class="terminal-title">kristine@portfolio ~ %</span>
+        </div>
+        <div class="terminal-body">
+          <div><span class="comment">// profile.config</span></div>
+          <div><span class="prompt">{</span></div>
+          <div>&nbsp;&nbsp;<span class="key">"name"</span>: <span class="str">"Kristine Faith N. Cubero"</span>,</div>
+          <div>&nbsp;&nbsp;<span class="key">"title"</span>: <span class="str">"IT Specialist & KM Consultant"</span>,</div>
+          <div>&nbsp;&nbsp;<span class="key">"credentials"</span>: <span class="str">"MBA, CLSSYB, CEPL"</span>,</div>
+          <div>&nbsp;&nbsp;<span class="key">"studying"</span>: <span class="str">"Juris Doctor"</span>,</div>
+          <div>&nbsp;&nbsp;<span class="key">"years_exp"</span>: <span class="val">8</span>,</div>
+          <div>&nbsp;&nbsp;<span class="key">"focus"</span>: [</div>
+          <div>&nbsp;&nbsp;&nbsp;&nbsp;<span class="str">"Incident Response"</span>,</div>
+          <div>&nbsp;&nbsp;&nbsp;&nbsp;<span class="str">"Digital Forensics"</span>,</div>
+          <div>&nbsp;&nbsp;&nbsp;&nbsp;<span class="str">"Knowledge Management"</span></div>
+          <div>&nbsp;&nbsp;],</div>
+          <div>&nbsp;&nbsp;<span class="key">"status"</span>: <span class="str">"Open to work"</span><span class="typing-cursor"></span></div>
+          <div><span class="prompt">}</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="section-header reveal">
+    <div class="section-label">Career Journey</div>
+    <h2 class="section-title">Work Experience</h2>
+  </div>
+  <div class="timeline">
+    <div class="timeline-item current reveal">
+      <div class="timeline-date">July 2024 — Present</div>
+      <div class="timeline-role">IT Specialist & Knowledge Management Consultant</div>
+      <div class="timeline-company">CMIT Solutions, Silicon Valley California (ScalableOS)</div>
+      <div class="timeline-desc">
+        Delivering end-to-end IT support across diverse environments. Administering user and device management in Google Workspace, Microsoft 365, Active Directory, and Azure AD. 
+        Led knowledge management initiatives that improved technician response time by 30%. Built and maintained centralized, searchable knowledge bases in IT Glue. 
+        Advising stakeholders on IT process improvements and documentation standards.
+      </div>
+      <div class="timeline-badges">
+        <span class="badge">ServiceNow</span>
+        <span class="badge">JIRA</span>
+        <span class="badge">IT Glue</span>
+        <span class="badge">Azure AD</span>
+        <span class="badge">Google Workspace</span>
+      </div>
+    </div>
+
+    <div class="timeline-item reveal">
+      <div class="timeline-date">Oct 2020 — Apr 2024</div>
+      <div class="timeline-role">NOC Analyst 2 | Incident Response & Management</div>
+      <div class="timeline-company">Global Payments Process Centre Inc., Quezon City</div>
+      <div class="timeline-desc">
+        Monitored and analyzed computer systems' performance using diverse tools. Conducted root cause analysis to resolve issues promptly. 
+        Collaborated with vendors and IT teams for swift resolution of technical issues. Maintained accurate documentation of incidents and resolutions. 
+        Also served as Project Lead/Manager, Onboarding/Upskill Trainer.
+      </div>
+      <div class="timeline-badges">
+        <span class="badge">ThousandEyes</span>
+        <span class="badge">LogicMonitor</span>
+        <span class="badge">SolarWinds</span>
+        <span class="badge">HPSM</span>
+        <span class="badge award">★ Silver Awards 2019 & 2020</span>
+        <span class="badge award">★ Loyalty Award 2023</span>
+      </div>
+    </div>
+
+    <div class="timeline-item reveal">
+      <div class="timeline-date">Oct 2018 — Oct 2020</div>
+      <div class="timeline-role">IT Service Desk Specialist (L3)</div>
+      <div class="timeline-company">Global Payments Process Centre Inc., Mandaluyong</div>
+      <div class="timeline-desc">
+        Managed support requests across email, chat, ticketing tools, and telephone. Provided remote assistance utilizing expertise in Windows, Google Workspace, 
+        Active Directory, and software/hardware troubleshooting. Spearheaded the creation of a Knowledge Management site that streamlined Global Service Desk processes.
+      </div>
+      <div class="timeline-badges">
+        <span class="badge">Active Directory</span>
+        <span class="badge">Knowledge Management</span>
+        <span class="badge">L3 Escalation</span>
+      </div>
+    </div>
+
+    <div class="timeline-item reveal">
+      <div class="timeline-date">Oct 2016 — Oct 2018</div>
+      <div class="timeline-role">CSR/TSR (L2)</div>
+      <div class="timeline-company">TPG/iiNet, Ortigas</div>
+      <div class="timeline-desc">
+        Provided comprehensive support for internet, mobile, standalone phones, and VoIP services. 
+        Handled line fault concerns, conducted investigations, and facilitated number/port migrations, upgrades, and relocation requests.
+      </div>
+      <div class="timeline-badges">
+        <span class="badge">VoIP</span>
+        <span class="badge">Network Troubleshooting</span>
+        <span class="badge award">★ Outstanding Team Member 2017</span>
+        <span class="badge award">★ Outstanding Q1-Q3 2018</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="section-header reveal">
+    <div class="section-label">Capabilities</div>
+    <h2 class="section-title">Technical & Legal Skills</h2>
+  </div>
+  <div class="skills-grid">
+    <div class="skill-card reveal">
+      <div class="skill-icon">🛡️</div>
+      <h3>Incident Response & Monitoring</h3>
+      <div class="skill-tags">
+        <span class="skill-tag">Root Cause Analysis</span>
+        <span class="skill-tag">ThousandEyes</span>
+        <span class="skill-tag">LogicMonitor</span>
+        <span class="skill-tag">SolarWinds</span>
+        <span class="skill-tag">NOC Operations</span>
+        <span class="skill-tag">Incident Documentation</span>
+      </div>
+    </div>
+    <div class="skill-card reveal">
+      <div class="skill-icon">☁️</div>
+      <h3>Identity & Access Management</h3>
+      <div class="skill-tags">
+        <span class="skill-tag">Active Directory</span>
+        <span class="skill-tag">Azure AD</span>
+        <span class="skill-tag">Google Workspace Admin</span>
+        <span class="skill-tag">Microsoft 365 Admin</span>
+        <span class="skill-tag">User Lifecycle</span>
+      </div>
+    </div>
+    <div class="skill-card reveal">
+      <div class="skill-icon">🎫</div>
+      <h3>ITSM & Ticketing</h3>
+      <div class="skill-tags">
+        <span class="skill-tag">ServiceNow</span>
+        <span class="skill-tag">JIRA</span>
+        <span class="skill-tag">HPSM</span>
+        <span class="skill-tag">Autotask</span>
+        <span class="skill-tag">IT Glue</span>
+        <span class="skill-tag">ITIL v4</span>
+      </div>
+    </div>
+    <div class="skill-card reveal">
+      <div class="skill-icon">📚</div>
+      <h3>Knowledge Management & Training</h3>
+      <div class="skill-tags">
+        <span class="skill-tag">KB Design & Maintenance</span>
+        <span class="skill-tag">Process Documentation</span>
+        <span class="skill-tag">Onboarding Programs</span>
+        <span class="skill-tag">Upskill Training</span>
+        <span class="skill-tag">IT Glue</span>
+      </div>
+    </div>
+    <div class="skill-card reveal">
+      <div class="skill-icon">⚖️</div>
+      <h3>Legal & Paralegal</h3>
+      <div class="skill-tags">
+        <span class="skill-tag">Legal Research</span>
+        <span class="skill-tag">Case Digesting</span>
+        <span class="skill-tag">Drafting Support</span>
+        <span class="skill-tag">Document Review</span>
+        <span class="skill-tag">Cite-Checking</span>
+        <span class="skill-tag">Docket Management</span>
+      </div>
+    </div>
+    <div class="skill-card reveal">
+      <div class="skill-icon">📊</div>
+      <h3>Process & Quality</h3>
+      <div class="skill-tags">
+        <span class="skill-tag">Lean Six Sigma (YB)</span>
+        <span class="skill-tag">Stakeholder Advisory</span>
+        <span class="skill-tag">Cross-functional Collaboration</span>
+        <span class="skill-tag">First-Contact Resolution</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CERTIFICATIONS -->
+<section id="certifications">
+  <div class="section-header reveal">
+    <div class="section-label">Credentials</div>
+    <h2 class="section-title">Certifications</h2>
+  </div>
+  <div class="certs-grid reveal">
+    <div class="cert-card">
+      <div class="cert-icon">📋</div>
+      <div class="cert-name">ITIL v4</div>
+      <div class="cert-issuer">IT Service Management</div>
+    </div>
+    <div class="cert-card">
+      <div class="cert-icon">☁️</div>
+      <div class="cert-name">AZ-900</div>
+      <div class="cert-issuer">Azure Fundamentals</div>
+    </div>
+    <div class="cert-card">
+      <div class="cert-icon">🌐</div>
+      <div class="cert-name">ACE Multicloud</div>
+      <div class="cert-issuer">Network Associate</div>
+    </div>
+    <div class="cert-card">
+      <div class="cert-icon">📐</div>
+      <div class="cert-name">Lean Six Sigma</div>
+      <div class="cert-issuer">Certified Yellow Belt</div>
+    </div>
+    <div class="cert-card">
+      <div class="cert-icon">⚖️</div>
+      <div class="cert-name">Certified Paralegal</div>
+      <div class="cert-issuer">Legal Professional</div>
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education">
+  <div class="section-header reveal">
+    <div class="section-label">Academic Background</div>
+    <h2 class="section-title">Education</h2>
+  </div>
+  <div class="edu-grid">
+    <div class="edu-card reveal">
+      <div class="edu-year">2024 — Present</div>
+      <div>
+        <div class="edu-degree">Juris Doctor</div>
+        <div class="edu-school">Mindanao State University College of Law — General Santos City</div>
+      </div>
+      <div></div>
+    </div>
+    <div class="edu-card reveal">
+      <div class="edu-year">2022 — 2024</div>
+      <div>
+        <div class="edu-degree">Master in Business Administration</div>
+        <div class="edu-school">Philippine Christian University</div>
+      </div>
+      <div></div>
+    </div>
+    <div class="edu-card reveal">
+      <div class="edu-year">2019 — 2022</div>
+      <div>
+        <div class="edu-degree">MBA — Major in Marketing Management</div>
+        <div class="edu-school">Polytechnic University of the Philippines</div>
+      </div>
+      <div></div>
+    </div>
+    <div class="edu-card reveal">
+      <div class="edu-year">2010 — 2014</div>
+      <div>
+        <div class="edu-degree">BS Travel Management</div>
+        <div class="edu-school">Regency Polytechnic College</div>
+      </div>
+      <div class="edu-honor">Cum Laude</div>
+    </div>
+    <div class="edu-card reveal">
+      <div class="edu-year">2006 — 2010</div>
+      <div>
+        <div class="edu-degree">High School</div>
+        <div class="edu-school">Koronadal National Comprehensive High School</div>
+      </div>
+      <div class="edu-honor">Valedictorian</div>
+    </div>
+  </div>
+
+  <!-- LEADERSHIP SUB-SECTION -->
+  <div class="section-header reveal" style="margin-top: 4rem;">
+    <div class="section-label">Involvement</div>
+    <h2 class="section-title">Leadership & Organizations</h2>
+  </div>
+  <div class="leadership-list">
+    <div class="leadership-item reveal">
+      <div class="leadership-bullet"></div>
+      <div>
+        <div class="leadership-role">Mooter</div>
+        <div class="leadership-org">MSU College of Law — Bantugen Debate and Moot Society</div>
+        <div class="leadership-yr">2025 — Present</div>
+      </div>
+    </div>
+    <div class="leadership-item reveal">
+      <div class="leadership-bullet"></div>
+      <div>
+        <div class="leadership-role">Board of Trustee</div>
+        <div class="leadership-org">PUP — College of Business Administration Graduate School</div>
+        <div class="leadership-yr">2019 — 2020</div>
+      </div>
+    </div>
+    <div class="leadership-item reveal">
+      <div class="leadership-bullet"></div>
+      <div>
+        <div class="leadership-role">Editor-in-Chief</div>
+        <div class="leadership-org">Regency Polytechnic College — The Beacon</div>
+        <div class="leadership-yr">2012 — 2013</div>
+      </div>
+    </div>
+    <div class="leadership-item reveal">
+      <div class="leadership-bullet"></div>
+      <div>
+        <div class="leadership-role">Vice President — Student Council</div>
+        <div class="leadership-org">Regency Polytechnic College</div>
+        <div class="leadership-yr">2011 — 2012</div>
+      </div>
+    </div>
+    <div class="leadership-item reveal">
+      <div class="leadership-bullet"></div>
+      <div>
+        <div class="leadership-role">Feature Editor / Literary Editor</div>
+        <div class="leadership-org">Regency Polytechnic College — The Beacon</div>
+        <div class="leadership-yr">2010 — 2012</div>
+      </div>
+    </div>
+    <div class="leadership-item reveal">
+      <div class="leadership-bullet"></div>
+      <div>
+        <div class="leadership-role">Public Information Officer</div>
+        <div class="leadership-org">Regency Polytechnic College — Student Council</div>
+        <div class="leadership-yr">2010 — 2011</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact-section" id="contact">
+  <div class="section-header reveal">
+    <div class="section-label">Let's Connect</div>
+    <h2 class="section-title">Get in Touch</h2>
+  </div>
+  <p class="contact-subtitle reveal">Open to opportunities in DFIR, cybersecurity operations, IT consulting, and knowledge management across the APAC region.</p>
+  <div class="contact-links reveal">
+    <a href="mailto:krisfaith.noman@gmail.com" class="contact-link">
+      <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+      krisfaith.noman@gmail.com
+    </a>
+    <a href="tel:+639171595183" class="contact-link">
+      <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+      +63 917 159 5183
+    </a>
+  </div>
+</section>
+
+<footer>
+  <p>&copy; 2026 Kristine Faith N. Cubero — Built with purpose.</p>
+</footer>
+
+<script>
+// Scroll reveal
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+// Close mobile menu on link click
+document.querySelectorAll('#navMenu a').forEach(link => {
+  link.addEventListener('click', () => {
+    document.getElementById('navMenu').classList.remove('active');
+  });
+});
+
+// Active nav highlighting
+const sections = document.querySelectorAll('section[id]');
+window.addEventListener('scroll', () => {
+  const scrollY = window.scrollY + 100;
+  sections.forEach(section => {
+    const top = section.offsetTop;
+    const height = section.offsetHeight;
+    const id = section.getAttribute('id');
+    const link = document.querySelector(`nav a[href="#${id}"]`);
+    if (link) {
+      if (scrollY >= top && scrollY < top + height) {
+        link.style.color = 'var(--accent-cyan)';
+      } else {
+        link.style.color = '';
+      }
+    }
+  });
+});
+</script>
+
+</body>
+</html>
